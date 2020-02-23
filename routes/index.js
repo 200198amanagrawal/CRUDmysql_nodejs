@@ -46,8 +46,8 @@ router.post('/', function(req, res, next) {
    var insertQuery='insert into `users` (`name`,`email`,`etype`,`hourlyrate`,`totalhour`,`total`) VALUES (?,?,?,?,?,?)';
     var hourlyrate= req.body.hrlyrate;
    var total= parseInt(req.body.hrlyrate) * parseInt(req.body.ttlhr);
-  var query=mysql.format(insertQuery,[name,email,etype,hourlyrate,totalHour,total]);
-  con.query(query,function(err,response){
+  var query=mysql.format(insertQuery,[name,email,etype,hourlyrate,totalHour,total]);//the line to insert the values
+  con.query(query,function(err,response){//the line which is taking the query to insert it.
       if(err) throw err;
      // console.log(response.insertId);
      var getQuery="select * from `users`";
